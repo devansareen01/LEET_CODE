@@ -1,0 +1,18 @@
+class Solution {
+    public static int vowelStrings(String[] words, int left, int right) {
+        int n = words.length;
+        int count = 0;
+        HashSet<Character> set = new HashSet();
+        set.add('a');
+        set.add('e');
+        set.add('i');
+        set.add('o');
+        set.add('u');
+        for (int i = left; i <= right; i++) {
+            int s = words[i].length();
+            if (set.contains(words[i].charAt(0)) && set.contains(words[i].charAt(s - 1)))
+                count++;
+        }
+        return count;
+    }
+}
